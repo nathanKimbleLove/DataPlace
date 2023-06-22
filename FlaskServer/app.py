@@ -6,8 +6,11 @@ from flask import Flask
 load_dotenv()
 
 app = Flask(__name__)
-url = os.environ.get("DATABASE_URL")
-connection = psycopg2.connect(dbname="tasktracker", user="nathanlove")
+pgdbname = os.environ.get("DATABASE_DBNAME")
+pguser = os.environ.get("DATABASE_USER")
+pgpw = os.environ.get("DATABASE_PW")
+pgurl = os.environ.get("DATABASE_URL")
+connection = psycopg2.connect(dbname=pgdbname, user=pguser, password=pgpw, host=pgurl)
 
 @app.route("/test")
 def helloworld():
