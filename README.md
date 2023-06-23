@@ -23,9 +23,9 @@ API endpoints documentation:
   - receives data in shape: <br />
     &ensp; N/A
   - returns: <br />
-    &ensp;\[
-    &ensp;&ensp;\[ INT, INT, STR, STR, INT, INT \],
-    &ensp;&ensp;\[ . . . \], . . .
+    &ensp;\[ <br />
+    &ensp;&ensp;\[ INT, INT, STR, STR, INT, INT \], <br />
+    &ensp;&ensp;\[ . . . \], . . . <br />
     &ensp;\]
 - POST to /create-table
   <i> creates a new chart </i>
