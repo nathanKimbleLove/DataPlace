@@ -33,7 +33,19 @@ def create_chart(chart_data):
     return result
 
 def create_datum(o):
-    return "create datum"
+    with connection:
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "INSERT INTO data_points (chart_id, name, description, variable_1, variable_2) "
+                "VALUES (%s, %s, %s, %s, %s) RETURNING id",
+                (o['chart_id'], o['name'], o['description'],
+                 o['variable_1'], o['variable_2'])
+            )
+            result = cursor.fetchone()
+            if result:
+                return {'id': result[0]}
+            print("results:::", result)
+    return result
 
 def read_chart(chart_id):
     with connection:
