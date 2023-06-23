@@ -1,28 +1,29 @@
 import React from "react";
-import { Navbar, Nav} from "react-bootstrap";
+import { Navbar, Nav, Container} from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import classes from "./PageNav.module.css";
 
 const PageNav = () => {
+
     return (
         <>
             <Navbar bg="light">
-                <Nav>
-                    <LinkContainer to="/">
-                    <Nav.Link>
-                        Home
-                    </Nav.Link>
-                    </LinkContainer>
-                    <LinkContainer to="/charts">
-                    <Nav.Link>
-                        Charts
-                    </Nav.Link>
-                    </LinkContainer>
-                    <LinkContainer to="/data">
-                    <Nav.Link>
-                        Data Entry
-                    </Nav.Link>
-                    </LinkContainer>
-                </Nav>
+                <div className={classes.container}>
+                    <Navbar.Brand>Data Place</Navbar.Brand>
+                    <Nav>
+                       
+                        <LinkContainer to="/chart">
+                        <Nav.Link>
+                            Chart Builder
+                        </Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer to="/about">
+                        <Nav.Link>
+                            About
+                        </Nav.Link>
+                        </LinkContainer>
+                    </Nav>
+                </div>
             </Navbar>
         </>
     )
