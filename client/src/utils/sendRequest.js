@@ -6,6 +6,10 @@ export async function sendRequest(url, method, body) {
     const options = {
         url: `${URL_BACKEND}${url}`,
         method: method,
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            },
         body: body || null
     };
 
