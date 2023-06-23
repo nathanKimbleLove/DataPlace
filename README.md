@@ -20,10 +20,13 @@ API endpoints documentation:
   - returns: "testing testing 1 2 3"
 - GET to /pg-test
   <i> ensures that the connection to the api and postgres can be established </i>
-  - receives data in shape:
+  - receives data in shape: <br />
       N/A
-  - returns:
-      \[\[ INT, INT, STR, STR, INT, INT \], \[ . . . \], . . . \]
+  - returns: <br />
+      \[
+        \[ INT, INT, STR, STR, INT, INT \],
+        \[ . . . \], . . .
+      \]
 - POST to /create-table
   <i> creates a new chart </i>
   - receives data in shape:
