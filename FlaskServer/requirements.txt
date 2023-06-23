@@ -1,3 +1,4 @@
 flask
 psycopg-2-binary
 python-dotenv
+flask-cors
