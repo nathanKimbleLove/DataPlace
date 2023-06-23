@@ -58,14 +58,13 @@ def update_datum(datum_id):
 def delete_chart(chart_id):
     print("delete to ", request.path)
     results = controller.delete_chart(chart_id)
-    return results
+    return make_response('', results)
 
 @app.delete("/datum/<datum_id>")
 def delete_datum(datum_id):
     print("delete to ", request.path)
     results = controller.delete_datum(datum_id)
-    return results
-
+    return make_response('', results)
 
 if __name__ == "__main__":
     app.run()

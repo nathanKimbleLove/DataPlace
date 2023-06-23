@@ -119,7 +119,19 @@ def update_datum(datum_id, o):
     return 400
 
 def delete_chart(chart_id):
-    return "delete chart"
+    with connection:
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "DELETE FROM charts WHERE id = %s", (chart_id)
+            )
+            return 204
+    return 400
 
 def delete_datum(datum_id):
-    return "delete datum"
+    with connection:
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "DELETE FROM data_points WHERE id = %s", (datum_id)
+            )
+            return 204
+    return 400
