@@ -17,23 +17,23 @@ def pg_test():
                 print(row)
     return results
 
-def create_table():
+def create_table(obj):
     return "create table"
 
-def create_row():
+def create_row(obj):
     return "create row"
 
-def read_table():
+def read_table(table_id):
     return "read table"
 
-def read_row():
+def read_row(table_id, row_id):
     return "read row"
 
-def update_row():
+def update_row(table_id, row_id):
     return "update row"
 
-def delete_table():
+def delete_table(table_id):
     return "delete table"
 
-def delete_row():
+def delete_row(table_id, row_id):
     return "delete row"
