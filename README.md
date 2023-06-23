@@ -29,51 +29,51 @@ API endpoints documentation:
     &ensp;\]
 - POST to /create-table
   <i> creates a new chart </i>
-  - receives data in shape:
-      {
-        table_name: STR (not null),
-        data_type_1: STR,
-        data_type_1_units: STR,
-        data_type_2: STR,
-        data_type_2_units: STR
+  - receives data in shape: <br />
+      { <br />
+        table_name: STR (not null), <br />
+        data_type_1: STR, <br />
+        data_type_1_units: STR, <br />
+        data_type_2: STR, <br />
+        data_type_2_units: STR <br />
       }
   - returns:
-      {
-        id: INT
+      { <br />
+        id: INT <br />
       }
 - POST to /create-datum
   <i> creates a new datapoint </i>
-  - receives data in shape:
-      {
-        chart_id: INT (not null),
-        name: STR,
-        description: STR,
-        variable_1: INT,
-        variable_2: INT
+  - receives data in shape: <br />
+      { <br />
+        chart_id: INT (not null), <br />
+        name: STR, <br />
+        description: STR, <br />
+        variable_1: INT, <br />
+        variable_2: INT <br />
       }
   - returns:
-      {
-        id: INT
+      { <br />
+        id: INT <br />
       }
-- GET to /read-chart/<chart-id>
+- GET to /read-chart/\<chart-id\>
   <i> returns all chart info </i>
-  - query /read-chart/<chart-id>
-  - returns:
-      {
-        chart: {
-          id: INT,
-          table_name: STR,
-          data_type_1: STR,
-          data_type_1_units: STR,
-          data_type_2: STR,
-          data_type_2_units: STR
-        },
-        data-points: [{
-          id: INT,
-          chart_id: INT (not null),
-          name: STR,
-          description: STR,
-          variable_1: INT,
-          variable_2: INT
-        }, { . . . }, . . .]
+  - query /read-chart/\<chart-id\>
+  - returns: <br />
+      { <br />
+        chart: { <br />
+          id: INT, <br />
+          table_name: STR, <br />
+          data_type_1: STR, <br />
+          data_type_1_units: STR, <br />
+          data_type_2: STR, <br />
+          data_type_2_units: STR <br />
+        }, <br />
+        data-points: \[{ <br />
+          id: INT, <br />
+          chart_id: INT (not null), <br />
+          name: STR, <br />
+          description: STR, <br />
+          variable_1: INT, <br />
+          variable_2: INT <br />
+        }, { . . . }, . . .\] <br />
       }
