@@ -1,8 +1,10 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, make_response
+from flask_cors import CORS
 
 import controller
 
 app = Flask(__name__)
+CORS(app)
 
 controller.run_schema_file()
 
@@ -44,7 +46,7 @@ def read_datum(datum_id):
 def update_chart(chart_id):
     print("put to ", request.path, request.json)
     results = controller.update_chart(chart_id, request.json)
-    return results
+    return make_response('', results)
 
 @app.put("/datum/<datum_id>")
 def update_datum(datum_id):
