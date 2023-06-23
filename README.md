@@ -21,12 +21,12 @@ API endpoints documentation:
 - GET to /pg-test
   <i> ensures that the connection to the api and postgres can be established </i>
   - receives data in shape: <br />
-      N/A
+    &ensp; N/A
   - returns: <br />
-      \[
-        \[ INT, INT, STR, STR, INT, INT \],
-        \[ . . . \], . . .
-      \]
+    &ensp;\[
+    &ensp;&ensp;\[ INT, INT, STR, STR, INT, INT \],
+    &ensp;&ensp;\[ . . . \], . . .
+    &ensp;\]
 - POST to /create-table
   <i> creates a new chart </i>
   - receives data in shape:
