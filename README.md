@@ -12,3 +12,8 @@ To run:
   - from root again
     - cd client
     - npm run dev
+
+API endpoints documentation:
+- GET to test
+  <i> ensures that the connection to the api can be established </i>
+- GET to pg-test
