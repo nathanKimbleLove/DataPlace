@@ -81,7 +81,22 @@ def read_chart(chart_id):
     return {'chart': chart_info, 'data_points': data_points}
 
 def read_datum(datum_id):
-    return "read datum"
+    with connection:
+        with connection.cursor() as cursor:
+            cursor.execute(
+                f"SELECT * FROM data_points WHERE id = {datum_id}"
+            )
+            datum_arr = cursor.fetchone()
+            info = {
+              "id": datum_arr[0],
+              "chart_id": datum_arr[1],
+              "name": datum_arr[2],
+              "description": datum_arr[3],
+              "variable_1": datum_arr[4],
+              "variable_2": datum_arr[5],
+            }
+            print("info: ", info)
+    return info
 
 def update_chart(chart_id, o):
     return "update chart"
