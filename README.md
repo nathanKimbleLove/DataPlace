@@ -21,59 +21,60 @@ API endpoints documentation:
 - GET to /pg-test
   <i> ensures that the connection to the api and postgres can be established </i>
   - receives data in shape: <br />
-    &ensp; N/A
+    &ensp;&ensp; N/A
   - returns: <br />
-    &ensp;\[ <br />
-    &ensp;&ensp;\[ INT, INT, STR, STR, INT, INT \], <br />
-    &ensp;&ensp;\[ . . . \], . . . <br />
-    &ensp;\]
+    &ensp;&ensp;\[ <br />
+    &ensp;&ensp;&ensp;&ensp;\[ INT, INT, STR, STR, INT, INT \], <br />
+    &ensp;&ensp;&ensp;&ensp;\[ . . . \], . . . <br />
+    &ensp;&ensp;\]
 - POST to /create-table
   <i> creates a new chart </i>
   - receives data in shape: <br />
-      { <br />
-        table_name: STR (not null), <br />
-        data_type_1: STR, <br />
-        data_type_1_units: STR, <br />
-        data_type_2: STR, <br />
-        data_type_2_units: STR <br />
-      }
+    &ensp;&ensp;{ <br />
+    &ensp;&ensp;&ensp;&ensp;table_name: STR (not null), <br />
+    &ensp;&ensp;&ensp;&ensp;data_type_1: STR, <br />
+    &ensp;&ensp;&ensp;&ensp;data_type_1_units: STR, <br />
+    &ensp;&ensp;&ensp;&ensp;data_type_2: STR, <br />
+    &ensp;&ensp;&ensp;&ensp;data_type_2_units: STR <br />
+    &ensp;}
   - returns:
-      { <br />
-        id: INT <br />
-      }
+    &ensp;&ensp;{ <br />
+    &ensp;&ensp;&ensp;&ensp;id: INT <br />
+    &ensp;&ensp;}
 - POST to /create-datum
   <i> creates a new datapoint </i>
   - receives data in shape: <br />
-      { <br />
-        chart_id: INT (not null), <br />
-        name: STR, <br />
-        description: STR, <br />
-        variable_1: INT, <br />
-        variable_2: INT <br />
-      }
+    &ensp;&ensp;{ <br />
+    &ensp;&ensp;&ensp;&ensp;chart_id: INT (not null), <br />
+    &ensp;&ensp;&ensp;&ensp;name: STR, <br />
+    &ensp;&ensp;&ensp;&ensp;description: STR, <br />
+    &ensp;&ensp;&ensp;&ensp;variable_1: INT, <br />
+    &ensp;&ensp;&ensp;&ensp;variable_2: INT <br />
+    &ensp;&ensp;}
   - returns:
-      { <br />
-        id: INT <br />
-      }
+    &ensp;&ensp;{ <br />
+    &ensp;&ensp;&ensp;&ensp;id: INT <br />
+    &ensp;&ensp;}
 - GET to /read-chart/\<chart-id\>
   <i> returns all chart info </i>
   - query /read-chart/\<chart-id\>
   - returns: <br />
-      { <br />
-        chart: { <br />
-          id: INT, <br />
-          table_name: STR, <br />
-          data_type_1: STR, <br />
-          data_type_1_units: STR, <br />
-          data_type_2: STR, <br />
-          data_type_2_units: STR <br />
-        }, <br />
-        data-points: \[{ <br />
-          id: INT, <br />
-          chart_id: INT (not null), <br />
-          name: STR, <br />
-          description: STR, <br />
-          variable_1: INT, <br />
-          variable_2: INT <br />
-        }, { . . . }, . . .\] <br />
-      }
+    &ensp;&ensp;{ <br />
+    &ensp;&ensp;&ensp;&ensp;chart: { <br />
+    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;id: INT, <br />
+    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;table_name: STR, <br />
+    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;data_type_1: STR, <br />
+    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;data_type_1_units: STR, <br />
+    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;data_type_2: STR, <br />
+    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;data_type_2_units: STR <br />
+    &ensp;&ensp;&ensp;&ensp;}, <br />
+    &ensp;&ensp;&ensp;&ensp;data-points: \[{ <br />
+    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;id: INT, <br />
+    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;chart_id: INT (not null), <br />
+    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;name: STR, <br />
+    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;description: STR, <br />
+    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;variable_1: INT, <br />
+    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;variable_2: INT <br />
+    &ensp;&ensp;&ensp;&ensp;}, { . . . }, . . . <br />
+    &ensp;&ensp;&ensp;&ensp;\] <br />
+    &ensp;&ensp;}
