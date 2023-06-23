@@ -14,6 +14,63 @@ To run:
     - npm run dev
 
 API endpoints documentation:
-- GET to test
+- GET to /test
   <i> ensures that the connection to the api can be established </i>
-- GET to pg-test
+  - receives data in shape: N/A
+  - returns: "testing testing 1 2 3"
+- GET to /pg-test
+  <i> ensures that the connection to the api and postgres can be established </i>
+  - receives data in shape:
+      N/A
+  - returns:
+      \[\[ INT, INT, STR, STR, INT, INT \], \[ . . . \], . . . \]
+- POST to /create-table
+  <i> creates a new chart </i>
+  - receives data in shape:
+      {
+        table_name: STR (not null),
+        data_type_1: STR,
+        data_type_1_units: STR,
+        data_type_2: STR,
+        data_type_2_units: STR
+      }
+  - returns:
+      {
+        id: INT
+      }
+- POST to /create-datum
+  <i> creates a new datapoint </i>
+  - receives data in shape:
+      {
+        chart_id: INT (not null),
+        name: STR,
+        description: STR,
+        variable_1: INT,
+        variable_2: INT
+      }
+  - returns:
+      {
+        id: INT
+      }
+- GET to /read-chart/<chart-id>
+  <i> returns all chart info </i>
+  - query /read-chart/<chart-id>
+  - returns:
+      {
+        chart: {
+          id: INT,
+          table_name: STR,
+          data_type_1: STR,
+          data_type_1_units: STR,
+          data_type_2: STR,
+          data_type_2_units: STR
+        },
+        data-points: [{
+          id: INT,
+          chart_id: INT (not null),
+          name: STR,
+          description: STR,
+          variable_1: INT,
+          variable_2: INT
+        }, { . . . }, . . .]
+      }
