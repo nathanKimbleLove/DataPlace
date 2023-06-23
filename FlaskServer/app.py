@@ -16,46 +16,52 @@ def pg_test():
     return jsonify(results)
 
 
-@app.post("/create-chart")
+@app.post("/chart")
 def create_chart():
     print("post to ", request.path, request.json)
     results = controller.create_chart(request.json)
     return results
 
-@app.post("/create-datum")
+@app.post("/datum")
 def create_datum():
     print("post to", request.path, request.json)
     results = controller.create_datum(request.json)
     return results
 
-@app.get("/read-chart/<chart_id>")
+@app.get("/chart/<chart_id>")
 def read_chart(chart_id):
     print("get to ", request.path)
     results = controller.read_chart(chart_id)
     return results
 
-@app.get("/read-datum/<chart_id>/<chart_datum>")
-def read_datum(chart_id, chart_datum):
+@app.get("/datum/<datum_id>")
+def read_datum(datum_id):
     print("get to ", request.path)
-    results = controller.read_datum(chart_id, chart_datum)
+    results = controller.read_datum(datum_id)
     return results
 
-@app.put("/update-datum/<chart_id>/<chart_datum>")
-def update_datum(chart_id, chart_datum):
+@app.put("/chart/<chart_id>")
+def update_chart(chart_id):
     print("put to ", request.path, request.json)
-    results = controller.update_datum(chart_id, chart_datum, request.json)
+    results = controller.update_chart(chart_id, request.json)
     return results
 
-@app.delete("/delete-chart/<chart_id>")
+@app.put("/datum/<datum_id>")
+def update_datum(datum_id):
+    print("put to ", request.path, request.json)
+    results = controller.update_datum(datum_id, request.json)
+    return results
+
+@app.delete("/chart/<chart_id>")
 def delete_chart(chart_id):
     print("delete to ", request.path)
     results = controller.delete_chart(chart_id)
     return results
 
-@app.delete("/delete-datum/<chart_id>/<chart_datum>")
-def delete_datum(chart_id, chart_datum):
+@app.delete("/datum/<datum_id>")
+def delete_datum(datum_id):
     print("delete to ", request.path)
-    results = controller.delete_datum(chart_id, chart_datum)
+    results = controller.delete_datum(datum_id)
     return results
 
 
