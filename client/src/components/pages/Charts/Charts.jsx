@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { sendRequest } from "../../../utils/sendRequest";
 
 const Charts = () => {
+    useEffect(() => {
+        // let sampleBody = {
+        //     table_name: "Katy's sample table",
+        //     data_type_1: "Month",
+        //     data_type_1_units: null,
+        //     data_type_2: "Coffee",
+        //     data_type_2_units: "cups"
+        // }
+
+        sendRequest("/chart/2", "GET")
+    }, [])
+
     return (
         <>
             <h4>New Chart</h4>
