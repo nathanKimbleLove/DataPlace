@@ -52,7 +52,7 @@ def update_chart(chart_id):
 def update_datum(datum_id):
     print("put to ", request.path, request.json)
     results = controller.update_datum(datum_id, request.json)
-    return results
+    return make_response('', results)
 
 @app.delete("/chart/<chart_id>")
 def delete_chart(chart_id):
