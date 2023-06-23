@@ -109,7 +109,14 @@ def update_chart(chart_id, o):
     return 400
 
 def update_datum(datum_id, o):
-    return "update datum"
+    with connection:
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "UPDATE data_points SET chart_id = %s, name = %s, description = %s, variable_1 = %s, variable_2 = %s WHERE ID = %s",
+                (o['chart_id'], o['name'], o['description'], o['variable_1'], o['variable_2'], datum_id)
+            )
+            return 204
+    return 400
 
 def delete_chart(chart_id):
     return "delete chart"
