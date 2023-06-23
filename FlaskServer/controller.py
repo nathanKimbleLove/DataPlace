@@ -99,7 +99,14 @@ def read_datum(datum_id):
     return info
 
 def update_chart(chart_id, o):
-    return "update chart"
+    with connection:
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "UPDATE charts SET table_name = %s, data_type_1 = %s, data_type_1_units = %s, data_type_2 = %s, data_type_2_units = %s WHERE ID = %s",
+                (o['table_name'], o['data_type_1'], o['data_type_1_units'], o['data_type_2'], o['data_type_2_units'], chart_id)
+            )
+            return 204
+    return 400
 
 def update_datum(datum_id, o):
     return "update datum"
