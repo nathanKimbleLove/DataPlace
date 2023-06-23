@@ -20,61 +20,61 @@ API endpoints documentation:
   - returns: "testing testing 1 2 3"
 - GET to /pg-test
   <i> ensures that the connection to the api and postgres can be established </i>
-  - receives data in shape: <br />
-    &ensp;&ensp; N/A
-  - returns: <br />
-    &ensp;&ensp;\[ <br />
-    &ensp;&ensp;&ensp;&ensp;\[ INT, INT, STR, STR, INT, INT \], <br />
-    &ensp;&ensp;&ensp;&ensp;\[ . . . \], . . . <br />
-    &ensp;&ensp;\]
+  - receives data in shape: 
+     N/A
+  - returns: 
+    \[ 
+    \[ INT, INT, STR, STR, INT, INT \], 
+    \[ . . . \], . . . 
+    \]
 - POST to /create-table
   <i> creates a new chart </i>
-  - receives data in shape: <br />
-    &ensp;&ensp;{ <br />
-    &ensp;&ensp;&ensp;&ensp;table_name: STR (not null), <br />
-    &ensp;&ensp;&ensp;&ensp;data_type_1: STR, <br />
-    &ensp;&ensp;&ensp;&ensp;data_type_1_units: STR, <br />
-    &ensp;&ensp;&ensp;&ensp;data_type_2: STR, <br />
-    &ensp;&ensp;&ensp;&ensp;data_type_2_units: STR <br />
-    &ensp;}
+  - receives data in shape: 
+    { 
+    table_name: STR (not null), 
+    data_type_1: STR, 
+    data_type_1_units: STR, 
+    data_type_2: STR, 
+    data_type_2_units: STR 
+    }
   - returns:
-    &ensp;&ensp;{ <br />
-    &ensp;&ensp;&ensp;&ensp;id: INT <br />
-    &ensp;&ensp;}
+    { 
+    id: INT 
+    }
 - POST to /create-datum
   <i> creates a new datapoint </i>
-  - receives data in shape: <br />
-    &ensp;&ensp;{ <br />
-    &ensp;&ensp;&ensp;&ensp;chart_id: INT (not null), <br />
-    &ensp;&ensp;&ensp;&ensp;name: STR, <br />
-    &ensp;&ensp;&ensp;&ensp;description: STR, <br />
-    &ensp;&ensp;&ensp;&ensp;variable_1: INT, <br />
-    &ensp;&ensp;&ensp;&ensp;variable_2: INT <br />
-    &ensp;&ensp;}
+  - receives data in shape: 
+    { 
+    chart_id: INT (not null), 
+    name: STR, 
+    description: STR, 
+    variable_1: INT, 
+    variable_2: INT 
+    }
   - returns:
-    &ensp;&ensp;{ <br />
-    &ensp;&ensp;&ensp;&ensp;id: INT <br />
-    &ensp;&ensp;}
+    { 
+    id: INT 
+    }
 - GET to /read-chart/\<chart-id\>
   <i> returns all chart info </i>
   - query /read-chart/\<chart-id\>
-  - returns: <br />
-    &ensp;&ensp;{ <br />
-    &ensp;&ensp;&ensp;&ensp;chart: { <br />
-    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;id: INT, <br />
-    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;table_name: STR, <br />
-    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;data_type_1: STR, <br />
-    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;data_type_1_units: STR, <br />
-    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;data_type_2: STR, <br />
-    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;data_type_2_units: STR <br />
-    &ensp;&ensp;&ensp;&ensp;}, <br />
-    &ensp;&ensp;&ensp;&ensp;data-points: \[{ <br />
-    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;id: INT, <br />
-    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;chart_id: INT (not null), <br />
-    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;name: STR, <br />
-    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;description: STR, <br />
-    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;variable_1: INT, <br />
-    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;variable_2: INT <br />
-    &ensp;&ensp;&ensp;&ensp;}, { . . . }, . . . <br />
-    &ensp;&ensp;&ensp;&ensp;\] <br />
-    &ensp;&ensp;}
+  - returns: 
+    { 
+    chart: { 
+    id: INT, 
+    table_name: STR, 
+    data_type_1: STR, 
+    data_type_1_units: STR, 
+    data_type_2: STR, 
+    data_type_2_units: STR 
+    }, 
+    data-points: \[{ 
+    id: INT, 
+    chart_id: INT (not null), 
+    name: STR, 
+    description: STR, 
+    variable_1: INT, 
+    variable_2: INT 
+    }, { . . . }, . . . 
+    \] 
+    }
