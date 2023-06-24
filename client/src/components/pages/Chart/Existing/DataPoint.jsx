@@ -39,7 +39,7 @@ const DataPoint = ({ object }) => {
 
     return (
         <tr>
-            <td><input value={object.name} /></td>
+            {/* <td><input value={object.name} /></td> */}
             <td><input value={object.variable_1} /> {chartData.unitY}</td>
             <td><input value={object.variable_2} /> {chartData.unitX}</td>
             <td><Button onClick={handleDelete}>X</Button></td>

@@ -36,20 +36,16 @@ const DataForm = () => {
     return (
         <>
             <Form className="my-4">
-                <Form.Group className="mb-3" controlId="formChartName">
-                    <Form.Label><b>Data Point Name</b></Form.Label>
-                    <Form.Control placeholder="ex: Mississippi River Yearly Statistics" value={name} onChange={(event) => {setName(event.target.value)}}/>
-                </Form.Group>
                 <Row>
                     <Col>
                         <Form.Group controlId="formYAxisUnit" className="mb-3">
-                            <Form.Label><b>Y-Axis Value</b></Form.Label>
-                            <Form.Control value={variable1} onChange={(event) => {setVariable1(event.target.value)}}/>
+                            <Form.Label><b>{chartData.labelY}</b></Form.Label>
+                            <Form.Control value={variable1} onChange={(event) => {setVariable1(event.target.value)}}/> {/* somehow add units to the end of the input? */}
                         </Form.Group>
                     </Col>
                     <Col>
                         <Form.Group controlId="formXAxisLabel" className="mb-3">
-                            <Form.Label><b>X-Axis Value</b></Form.Label>
+                            <Form.Label><b>{chartData.labelX}</b></Form.Label>
                             <Form.Control value={variable2} placeholder="ex: Flow Rate" onChange={(event) => {setVariable2(event.target.value)}}/>
                         </Form.Group>
                     </Col>

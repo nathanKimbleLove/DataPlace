@@ -28,7 +28,6 @@ const DataList = () => {
             ? <Table striped bordered hover>
                   <thead>
                       <tr>
-                          <th>Data Point Name</th>
                           <th>{chartData.labelY}</th>
                           <th>{chartData.labelX}</th>
                           <th>Delete Point</th>

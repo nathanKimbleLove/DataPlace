@@ -8,6 +8,11 @@ import { Col, Row } from "react-bootstrap";
 import DataForm from "./DataForm.jsx"
 import DataList from "./DataList.jsx"
 
+import Scatter from "./ChartTypes/Scatter.jsx"
+import Line from "./ChartTypes/Line.jsx"
+import Pie from "./ChartTypes/Pie.jsx"
+import Bar from "./ChartTypes/Bar.jsx"
+
 const ExistingChart = () => {
     const chartData = useChartData();
     const toast = useToast();
@@ -40,15 +45,21 @@ const ExistingChart = () => {
 
             <Row>
                 <Col xs={12} md={8}>
-                    <p>Chart here</p>
+
+                    <Scatter />
+                    <Line />
+                    <Pie />
+                    <Bar />
+
+                    {/* <p>Chart here</p>
                     <p>Might need to have separate components for the different types of charts (bar, line, etc.) and dynamically only display the one that matches the chart the user picked</p>
                     <p>Would also be super cool to have a dropdown that allowed you to switch between the different chart types</p>
-                    <p>Documentation for all of the charts is at <a href="https://www.chartjs.org/docs/latest/charts/bar.html">https://www.chartjs.org/docs/latest/charts/bar.html</a></p>
+                    <p>Documentation for all of the charts is at <a href="https://www.chartjs.org/docs/latest/charts/bar.html">https://www.chartjs.org/docs/latest/charts/bar.html</a></p> */}
                 </Col>
                 <Col xs={12} md={4}>
                     <DataForm />
                     <DataList />
-                    <p>Side pannel where the user can enter new data points and edit/delete previously added ones</p>
+                    <p>Side panel where the user can enter new data points and edit/delete previously added ones</p>
                 </Col>
             </Row>
 
