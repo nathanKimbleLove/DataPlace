@@ -45,9 +45,9 @@ def create_datum(o):
     with connection:
         with connection.cursor() as cursor:
             cursor.execute(
-                "INSERT INTO data_points (chart_id, name, description, variable_1, variable_2) "
-                "VALUES (%s, %s, %s, %s, %s) RETURNING id",
-                (o['chart_id'], o['name'], o['description'],
+                "INSERT INTO data_points (chart_id, name, variable_1, variable_2) "
+                "VALUES (%s, %s, %s, %s) RETURNING id",
+                (o['chart_id'], o['name'],
                  o['variable_1'], o['variable_2'])
             )
             result = cursor.fetchone()
@@ -82,9 +82,8 @@ def read_chart(chart_id):
                     "id": p[0],
                     "chart_id": p[1],
                     "name": p[2],
-                    "description": p[3],
-                    "variable_1": p[4],
-                    "variable_2": p[5]
+                    "variable_1": p[3],
+                    "variable_2": p[4]
                 })
             print("chart_info:", chart_info, "data_points:", data_points)
     return {'chart': chart_info, 'data_points': data_points}
@@ -100,9 +99,8 @@ def read_datum(datum_id):
               "id": datum_arr[0],
               "chart_id": datum_arr[1],
               "name": datum_arr[2],
-              "description": datum_arr[3],
-              "variable_1": datum_arr[4],
-              "variable_2": datum_arr[5],
+              "variable_1": datum_arr[3],
+              "variable_2": datum_arr[4],
             }
             print("info: ", info)
     return info
@@ -121,8 +119,8 @@ def update_datum(datum_id, o):
     with connection:
         with connection.cursor() as cursor:
             cursor.execute(
-                "UPDATE data_points SET chart_id = %s, name = %s, description = %s, variable_1 = %s, variable_2 = %s WHERE ID = %s",
-                (o['chart_id'], o['name'], o['description'], o['variable_1'], o['variable_2'], datum_id)
+                "UPDATE data_points SET chart_id = %s, name = %s, variable_1 = %s, variable_2 = %s WHERE ID = %s",
+                (o['chart_id'], o['name'], o['variable_1'], o['variable_2'], datum_id)
             )
             return 204
     return 400
@@ -131,7 +129,7 @@ def delete_chart(chart_id):
     with connection:
         with connection.cursor() as cursor:
             cursor.execute(
-                "DELETE FROM charts WHERE id = %s", (chart_id)
+                "DELETE FROM charts WHERE id = %s", (chart_id,)
             )
             return 204
     return 400
@@ -140,7 +138,7 @@ def delete_datum(datum_id):
     with connection:
         with connection.cursor() as cursor:
             cursor.execute(
-                "DELETE FROM data_points WHERE id = %s", (datum_id)
+                "DELETE FROM data_points WHERE id = %s", (datum_id,)
             )
             return 204
     return 400

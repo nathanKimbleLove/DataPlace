@@ -5,12 +5,13 @@ import { useParams } from "react-router";
 import { useToast } from "../../../../store/toast-context";
 import { Col, Row } from "react-bootstrap";
 
+import DataForm from "./DataForm.jsx"
+import DataList from "./DataList.jsx"
+
 const ExistingChart = () => {
     const chartData = useChartData();
     const toast = useToast();
     let { chartId } = useParams();
-
-    console.log(chartData)
 
     useEffect(() => {
         if (!chartData.chartId) {
@@ -22,7 +23,8 @@ const ExistingChart = () => {
                     chartData.setUnitY(response.data.chart.data_type_1_units);
                     chartData.setLabelX(response.data.chart.data_type_2);
                     chartData.setUnitX(response.data.chart.data_type_2_units);
-                    chartData.setChartId(chartId)
+                    chartData.setChartId(chartId);
+                    chartData.setData(response.data.data_points);
                 }
                 if (response.error) {
                     console.log(response.error);
@@ -44,10 +46,12 @@ const ExistingChart = () => {
                     <p>Documentation for all of the charts is at <a href="https://www.chartjs.org/docs/latest/charts/bar.html">https://www.chartjs.org/docs/latest/charts/bar.html</a></p>
                 </Col>
                 <Col xs={12} md={4}>
+                    <DataForm />
+                    <DataList />
                     <p>Side pannel where the user can enter new data points and edit/delete previously added ones</p>
                 </Col>
             </Row>
-            
+
 
 
         </>

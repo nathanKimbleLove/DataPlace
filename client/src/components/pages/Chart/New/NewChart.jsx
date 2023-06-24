@@ -46,8 +46,6 @@ const NewChart = () => {
             data_type_2_units: unitX
         }
 
-        console.log(body)
-
         sendRequest("/chart", "POST", body).then((response) => {
             if (response.data) {
                 toast.open("Successfully created chart", "success")
@@ -58,6 +56,7 @@ const NewChart = () => {
                 chartData.setLabelX(labelX);
                 chartData.setUnitX(unitX);
                 chartData.setChartId(response.data.id)
+                chartData.setData(response.data.data_points)
 
                 navigate(`${response.data.id}`)
             }
