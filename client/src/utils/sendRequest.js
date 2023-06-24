@@ -9,7 +9,19 @@ export async function sendRequest(url, method, body) {
         data: body || null
     };
 
-    const response = await axios(options);
+    let response = {data: null, error: null};
+    try {
+        let res = await axios(options);
+        if (res.data) {
+            response.data = res.data;
+        }
+        if (res.error) {
+            response.error = res.error;
+        }
+    } catch (ex) {
+        response.error = ex;
+    }
+    
 
     return response;
 }
