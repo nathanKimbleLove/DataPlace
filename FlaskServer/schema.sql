@@ -48,6 +48,16 @@ CREATE TABLE IF NOT EXISTS data_points (
 
 ALTER TABLE "data_points" ADD FOREIGN KEY (chart_id) REFERENCES "charts" ("id");
 
+-- ---
+-- Indexes
+-- ---
+
+CREATE INDEX chart_id_index ON  data_points (chart_id);
+
+-- ---
+-- Insert default values
+-- ---
+
 INSERT INTO charts (table_name, data_type_1, data_type_1_units, data_type_2, data_type_2_units)
 VALUES ('Mississippi River Stats Over the Years', 'Year', null, 'Average Flow Rate', 'gal/min'),
 ('Average Air Travel Stats Each Year', 'Month', null, 'Peak Day', null),

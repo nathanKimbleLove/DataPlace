@@ -17,6 +17,11 @@ def pg_test():
     results = controller.pg_test()
     return jsonify(results)
 
+@app.post("/pg-query")
+def pg_query():
+    results = controller.pg_query(request.json)
+    return jsonify(results)
+
 
 @app.post("/chart")
 def create_chart():

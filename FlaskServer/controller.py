@@ -17,6 +17,15 @@ def pg_test():
                 print(row)
     return results
 
+def pg_query(o):
+    with connection:
+        with connection.cursor() as cursor:
+            cursor.execute(o["query"])
+            results = cursor.fetchall()
+            print(results)
+    return results
+
+
 def create_chart(chart_data):
     with connection:
         with connection.cursor() as cursor:
