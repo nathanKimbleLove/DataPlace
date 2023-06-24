@@ -1,0 +1,26 @@
+.success {
+    color: green;
+}
+
+.error {
+    color: darkred;
+    
+}
+
+.warning {
+    color: orange;
+}
+
+.info {
+    color: #2980b9;
+}
+
+.toast {
+    display: flex;
+}
+
+.toastIcon {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
