@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { sendRequest } from "../../../utils/sendRequest";
-
 const Charts = () => {
     useEffect(() => {
         let sampleBody = {
@@ -11,7 +10,7 @@ const Charts = () => {
             data_type_2_units: "cups"
         }
 
-        sendRequest("/chart", "POST", JSON.stringify(sampleBody))
+        sendRequest("/chart", "POST", sampleBody)
     }, [])
 
     return (
