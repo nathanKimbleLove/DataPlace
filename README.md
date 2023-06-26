@@ -9,19 +9,6 @@
 
 ### Built With
 
-- Authorization: 
-
-    <img src="https://user-images.githubusercontent.com/118213399/224507614-d14f07e1-3eaf-407f-afcc-ed4e86c7a573.png" width=30px height=30px> **JSON Web Tokens**
-    
-- Front End:
-
-    <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" width=30px height=30px> **React**
-  
-    <img src="https://github.com/nathanKimbleLove/DataPlace/assets/115827515/40dcae6f-ace2-4a20-ad04-e47d8d3c470b" width=30px height=30px> **Chart.js**
-  
-   <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/chartjs/chartjs.png" width=30px height=30px> **Chart.js**
-
-
 - Back End:
 
    <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png" width=30px height=30px> **Python**
@@ -33,6 +20,13 @@
    <img src="https://github.com/nathanKimbleLove/DataPlace/assets/115827515/b02cc3d2-6532-4c63-99ee-a0d79398818b" width=30px height=30px> **RDS**
 
    <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/postgresql/postgresql.png" width=30px height=30px> **PostgreSQL**
+    
+- Front End:
+
+    <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" width=30px height=30px> **React**
+  
+    <img src="https://github.com/nathanKimbleLove/DataPlace/assets/115827515/40dcae6f-ace2-4a20-ad04-e47d8d3c470b" width=30px height=30px> **Chart.js**
+
 
 
 ## Features
