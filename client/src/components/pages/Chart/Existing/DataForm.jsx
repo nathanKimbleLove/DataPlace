@@ -9,8 +9,8 @@ const DataForm = () => {
     const chartData = useChartData();
 
     const [name, setName] = useState("")
-    const [variable1, setVariable1] = useState(null);
-    const [variable2, setVariable2] = useState(null);
+    const [variable1, setVariable1] = useState("");
+    const [variable2, setVariable2] = useState("");
 
     const handleSubmit = () => {
         const body = {

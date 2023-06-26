@@ -16,7 +16,7 @@ const Pie = () => {
             let values = [];
             let bkgrColors = [];
             let brdrColors = [];
-            for (let i = 0; i < chartData.data.length; i++) {
+            for (let i = 0; i < chartData.data?.length; i++) {
                 labels.push(chartData.data[i].variable_1)
                 values.push(chartData.data[i].variable_2)
                 let r = Math.floor(Math.random() * 256)

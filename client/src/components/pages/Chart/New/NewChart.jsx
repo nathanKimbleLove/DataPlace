@@ -16,7 +16,7 @@ const NewChart = () => {
     const navigate = useNavigate();
 
     const [chartTitle, setChartTitle] = useState("")
-    const [chartType, setChartType] = useState("bar");
+    const [chartType, setChartType] = useState("Bar");
     const [labelY, setLabelY] = useState("");
     const [unitY, setUnitY] = useState("");
     const [labelX, setLabelX] = useState("");

@@ -30,7 +30,9 @@ const ExistingChart = () => {
                     chartData.setChartId(chartId);
                     chartData.setData(response.data.data_points);
 
-                    chartData.setChartType("Scatter");
+                    if (!chartData.chartType) { 
+                        chartData.setChartType("Scatter")
+                    };
                 }
                 if (response.error) {
                     console.log(response.error);

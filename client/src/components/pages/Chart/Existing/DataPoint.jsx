@@ -40,7 +40,6 @@ const DataPoint = ({ object }) => {
     }
 
     const checkIsChanged = () => {
-        console.log('check is runing? epicly?', variable_1, object.variable_1, variable_2, object.variable_2)
         return (`${variable_1}` === `${object.variable_1}` && `${variable_2}` === `${object.variable_2}`) ? false : true;
     }
 
