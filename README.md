@@ -1,7 +1,3 @@
-# Data Place
-
-API endpoints documentation:
-
 <h1 align="center"> Data Place </h1>
 <h3 align="center"> A data-entry and chart-display hub </h3> <br>
 
