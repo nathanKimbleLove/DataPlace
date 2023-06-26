@@ -1,80 +1,104 @@
 # Data Place
 
-To run:
-  - idk these aren't the most helpful instructions but I'll do my best.
-  - I also don't know how to make a .md file look good
-  - lol
-  - from root
-    - cd FlaskServer
-    - source bin/activate
-    - pip3 install -r requirements.txt
-    - flask run
-  - from root again
-    - cd client
-    - npm run dev
-
 API endpoints documentation:
-- GET to /test
-  <i> ensures that the connection to the api can be established </i>
-  - receives data in shape: N/A
-  - returns: "testing testing 1 2 3"
-- GET to /pg-test
-  <i> ensures that the connection to the api and postgres can be established </i>
-  - receives data in shape:
-     N/A
-  - returns:
-    \[
-    \[ INT, INT, STR, STR, INT, INT \],
-    \[ . . . \], . . .
-    \]
-- POST to /create-table
-  <i> creates a new chart </i>
-  - receives data in shape:
-    {
-    table_name: STR (not null),
-    data_type_1: STR,
-    data_type_1_units: STR,
-    data_type_2: STR,
-    data_type_2_units: STR
-    }
-  - returns:
-    {
-    id: INT
-    }
-- POST to /create-datum
-  <i> creates a new datapoint </i>
-  - receives data in shape:
-    {
-    chart_id: INT (not null),
-    name: STR,
-    description: STR,
-    variable_1: INT,
-    variable_2: INT
-    }
-  - returns:
-    {
-    id: INT
-    }
-- GET to /read-chart/\<chart-id\>
-  <i> returns all chart info </i>
-  - query /read-chart/\<chart-id\>
-  - returns:
-    {
-    chart: {
-    id: INT,
-    table_name: STR,
-    data_type_1: STR,
-    data_type_1_units: STR,
-    data_type_2: STR,
-    data_type_2_units: STR
-    },
-    data-points: \[{
-    id: INT,
-    chart_id: INT (not null),
-    name: STR,
-    description: STR,
-    variable_1: INT,
-    variable_2: INT
-    }, { . . . }, . . .
-    \]
-    }
+
+<h1 align="center"> Data Place </h1>
+<h3 align="center"> A data-entry and chart-display hub </h3> <br>
+
+
+![init-graph](https://github.com/nathanKimbleLove/DataPlace/assets/115827515/0f1c3b4e-9a78-4f16-ad6b-f29a886db2ec)
+![modify](https://github.com/nathanKimbleLove/DataPlace/assets/115827515/2af51cc3-f524-47f7-b9a9-ce0ddc3ec9a2)
+![graph-change](https://github.com/nathanKimbleLove/DataPlace/assets/115827515/8b832c87-dffc-41a0-81ec-a2685b862175)
+
+
+### Built With
+
+- Authorization: 
+
+    <img src="https://user-images.githubusercontent.com/118213399/224507614-d14f07e1-3eaf-407f-afcc-ed4e86c7a573.png" width=30px height=30px> **JSON Web Tokens**
+    
+- Front End:
+
+    <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" width=30px height=30px> **React**
+  
+    <img src="https://github.com/nathanKimbleLove/DataPlace/assets/115827515/40dcae6f-ace2-4a20-ad04-e47d8d3c470b" width=30px height=30px> **Chart.js**
+  
+   <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/chartjs/chartjs.png" width=30px height=30px> **Chart.js**
+
+
+- Back End:
+
+   <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png" width=30px height=30px> **Python**
+
+   <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/flask/flask.png" width=30px height=30px> **Flask**
+  
+   <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/aws/aws.png" width=30px height=30px> **AWS**
+
+   <img src="https://github.com/nathanKimbleLove/DataPlace/assets/115827515/b02cc3d2-6532-4c63-99ee-a0d79398818b" width=30px height=30px> **RDS**
+
+   <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/postgresql/postgresql.png" width=30px height=30px> **PostgreSQL**
+
+
+## Features
+
+Here are some of the features of Get Cookin:
+
+### Recipe Search
+
+The user is able to search by ingredient and exclude search results by filter. As the user types into the search input or filter input, a useEffect is activated which kicks off a 300ms setTimeout. This setTimeout debounces every time a key is typed, and it if it hits zero the useEffect makes an axios request to the server, which in turn makes an axios request to the Edamam Food API. The resulting response is used to populate the auto-complete functionality on the ingredient search and filter inputs.
+
+When the user hits the 'Search' button, an axios request is sent to the server, which in turn requests the Edamam Recipe API using the search and filter parameters sent along. Before this happens, the user preferences are added to the request as query params. The resulting response is used to populate the recipe card list on the search view.
+
+### Profile Page
+
+The profile page shows the account information like name, email and password, dietary restriction information as well as list of recently visited recipes. The dietary restriction section has a save to profile button which saves any restriction choices made in the checkbox format. There is also a add more restrictions section as well which gives user option to add more restriction.
+
+### Save Recipes
+
+A user is able to save recipes by clicking on the "Save Recipe" button on any recipe card.  The saved recipes are stored on the "Saved Recipes" page.  Clicking on any of the saved recipes will send the user to the specific recipe website.
+
+### Authorization
+
+A user should not be able to access any routes or pages of the application without first signing up or logging in. On sign up or login, a JSON web token generated by jwt.io is generated with encrypted user data and passed to the front end as a cookie and to be stored on local storage. The token is verified by middleware on the express server with any subsequent request. 
+
+### Back End
+
+The back end of the application is built in PostgreSQL. The back end stores not only the users login credentials, but also their dietary and health restrictions, that are then used on any subsequent search queries. 
+
+## Contributors
+
+Please visit our contributors pages on GitHub:
+
+[Nathan Love](https://github.com/nathanKimbleLove) <br>
+[Andrew Sittner](https://github.com/andrewsittner) <br>
+[Deirdre Loyall](https://github.com/dirtOval) <br>
+[Robin Kim](https://github.com/robin1004) <br>
+[Bryce Anderson](https://github.com/abanderson3) <br>
+[Sajana Balal](https://github.com/SajanaB) <br>
+[Paul Koski](https://github.com/pwkoski)
+
+
+## Build Process
+
+- Clone or download the repo
+- Install PostgreSQL and create a database to store user and recipe info
+- Navigate to the database folder in the repo and run `psql -U yourUsername -d yourDatabase -f "schema.sql"`
+- Sign up for Food Database and Recipe Search APIs
+- Create a .env file in the root directory of the repo and input the following:
+  - `JWT_SECRET='use Node.js crypto function to generate a 64bit key'`
+  - `FOOD_ID=yourFoodID`
+  - `FOOD_KEY=yourFoodKey`
+  - `RECIPE_ID=yourRecipeID`
+  - `RECIPE_KEY=yourRecipeKey`
+  - `API_URL="https://api.edamam.com/search?app_id=RECIPE_ID&app_key=RECIPE_KEY"`
+  - `AUTOCOMPLETE_API_URL='https://api.edamam.com/auto-complete?app_id=FOOD_ID&app_key=FOOD_KEY'`
+- `npm install` to install dependencies
+- `npm run build` to build the front end
+- `npm run serve` to start the server and connect to the database
+- Navigate to `http://localhost:3000` to start the app!
+
+
+## Acknowledgments
+
+- Thanks to Sue Shef for her support and financial backing!
+- Made with [Edamam](https://edamam.com)
