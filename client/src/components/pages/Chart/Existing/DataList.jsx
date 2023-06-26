@@ -25,18 +25,13 @@ const DataList = () => {
     return (
         <>
             {dataArr
-            ? <Table striped bordered hover>
-                  <thead>
-                      <tr>
-                          <th>{chartData.labelY}</th>
-                          <th>{chartData.labelX}</th>
-                          <th>Delete Point</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      {dataArr}
-                  </tbody>
-              </Table>
+            ? <div style={{display: "flex", flexDirection: "column"}}>
+                  <div style={{display: "flex"}}>
+                      <div style={{width: "40%" }}>{chartData.labelY}</div>
+                      <div style={{width: "40%" }}>{chartData.labelX}</div>
+                  </div>
+                  {dataArr}
+            </div>
             : null }
         </>
     )

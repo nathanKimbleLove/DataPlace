@@ -24,15 +24,15 @@ const NewChart = () => {
 
     const getImgSrc = () => {
         switch (chartType) {
-            case "bar":
+            case "Bar":
                 return bar;
-            case "pie":
+            case "Pie":
                 return pie;
-            case "doughnut":
+            case "Doughnut":
                 return doughnut;
-            case "line":
+            case "Line":
                 return line;
-            case "scatter":
+            case "Scatter":
                 return scatter;
         }
     }
@@ -86,11 +86,10 @@ const NewChart = () => {
                         <Col sm={12} lg={4} className="mb-3">
                             <Form.Label><b>Chart Type</b></Form.Label>
                             <Form.Select onChange={(event) => {setChartType(event.target.value)}}>
-                                <option value="bar">Bar</option>
-                                <option value="pie">Pie</option>
-                                <option value="doughnut">Doughnut</option>
-                                <option value="line">Line</option>
-                                <option value="scatter">Scatter</option>
+                                <option value="Bar">Bar</option>
+                                <option value="Pie">Pie</option>
+                                <option value="Line">Line</option>
+                                <option value="Scatter">Scatter</option>
                             </Form.Select>
                         </Col>
                         <Col sm={12} lg={8} className="mb-3">

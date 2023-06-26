@@ -1,0 +1,13 @@
+.hasUnit {
+  width: 50%;
+  margin-right: 10px;
+}
+
+.hasNoUnit {
+  width: 90%;
+  margin-right: 10px;
+}
+
+.clickable {
+  cursor: pointer
+}
