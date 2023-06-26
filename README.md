@@ -3,8 +3,8 @@
 
 
 ![init-graph](https://github.com/nathanKimbleLove/DataPlace/assets/115827515/0f1c3b4e-9a78-4f16-ad6b-f29a886db2ec)
-![modify](https://github.com/nathanKimbleLove/DataPlace/assets/115827515/2af51cc3-f524-47f7-b9a9-ce0ddc3ec9a2)
 ![graph-change](https://github.com/nathanKimbleLove/DataPlace/assets/115827515/8b832c87-dffc-41a0-81ec-a2685b862175)
+![modify](https://github.com/nathanKimbleLove/DataPlace/assets/115827515/2af51cc3-f524-47f7-b9a9-ce0ddc3ec9a2)
 
 
 ### Built With
